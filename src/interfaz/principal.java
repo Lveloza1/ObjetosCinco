@@ -29,6 +29,21 @@ public class principal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtInteresAnual = new javax.swing.JTextField();
+        txtSaldoActual = new javax.swing.JTextField();
+        txtIdentificacion = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtResultado = new javax.swing.JTextArea();
+        jPanel4 = new javax.swing.JPanel();
+        cmdBorrar = new javax.swing.JButton();
+        cmdMostrar = new javax.swing.JButton();
+        cmdActualizar = new javax.swing.JButton();
+        cmdRetirar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,6 +52,55 @@ public class principal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tunga", 1, 18)); // NOI18N
         jLabel1.setText("Ejercicio 5");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Iniciales"));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
+        jLabel4.setText("Interés Anual");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
+        jLabel5.setText("Saldo Actual");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
+        jLabel6.setText("ID del cliente");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jPanel2.add(txtInteresAnual, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 100, 30));
+        jPanel2.add(txtSaldoActual, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 100, 30));
+        jPanel2.add(txtIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 100, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 230, 140));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Resultantes"));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtResultado.setEditable(false);
+        txtResultado.setColumns(20);
+        txtResultado.setRows(5);
+        jScrollPane1.setViewportView(txtResultado);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 90));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 230, 120));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cmdBorrar.setText("Borrar");
+        jPanel4.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 130, 40));
+
+        cmdMostrar.setText("Mostrar");
+        jPanel4.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 130, 40));
+
+        cmdActualizar.setText("Actualizar Saldo");
+        jPanel4.add(cmdActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 130, 40));
+
+        cmdRetirar1.setText("Retirar Saldo");
+        jPanel4.add(cmdRetirar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 130, 40));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 160, 230));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -49,9 +113,7 @@ public class principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -94,7 +156,22 @@ public class principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cmdActualizar;
+    private javax.swing.JButton cmdBorrar;
+    private javax.swing.JButton cmdMostrar;
+    private javax.swing.JButton cmdRetirar1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField txtIdentificacion;
+    private javax.swing.JTextField txtInteresAnual;
+    private javax.swing.JTextArea txtResultado;
+    private javax.swing.JTextField txtSaldoActual;
     // End of variables declaration//GEN-END:variables
 }
