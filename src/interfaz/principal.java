@@ -205,13 +205,13 @@ public class principal extends javax.swing.JFrame {
     private void cmdActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActualizarActionPerformed
         long aux;
         aux = c.ActualizarSaldo();
-        txtResultado.append("Su saldo se ha actualizado a: " + aux + "\n");
+        txtResultado.append("\nSu saldo se ha actualizado a: " + aux + "\n");
         cmdGuardar.setEnabled(false);
         cmdIngresar.setEnabled(true);
-        cmdActualizar.setEnabled(true);
+        cmdActualizar.setEnabled(false);
         cmdRetirar.setEnabled(true);
         cmdBorrar.setEnabled(true);
-        cmdMostrar.setEnabled(true);
+        cmdMostrar.setEnabled(false);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdActualizarActionPerformed
@@ -242,7 +242,7 @@ public class principal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Guardado exitosamente");
             cmdGuardar.setEnabled(false);
             cmdIngresar.setEnabled(true);
-            cmdActualizar.setEnabled(true);
+            cmdActualizar.setEnabled(false);
             cmdRetirar.setEnabled(true);
             cmdBorrar.setEnabled(true);
             cmdMostrar.setEnabled(true);
@@ -261,7 +261,7 @@ public class principal extends javax.swing.JFrame {
         cmdActualizar.setEnabled(true);
         cmdRetirar.setEnabled(true);
         cmdBorrar.setEnabled(true);
-        cmdMostrar.setEnabled(true);
+        cmdMostrar.setEnabled(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
