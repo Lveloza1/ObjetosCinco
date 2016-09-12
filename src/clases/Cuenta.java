@@ -93,5 +93,25 @@ public class Cuenta {
         
         return this.Sactual;
     }
+    public long Retirar(){
+        long aux;
+        long ns;
+        int res;
+        if (this.Sactual == 0) {
+            JOptionPane.showMessageDialog(null, "Usted no tiene saldo");
+        }
+        aux = Long.parseLong(JOptionPane.showInputDialog( "Digite el total a retirar"));
+        while (aux > this.Sactual) {
+            aux = Long.parseLong(JOptionPane.showInputDialog( "Debe tener una cantidad validad para retirar, ingrese su saldo nuevamente"));
+        }
+        res = JOptionPane.showConfirmDialog(null, "¿Seguro que desea retirar esta cantidad?: " + aux, "Pregunta", JOptionPane.YES_NO_OPTION);
+        if (res == 0) {
+            ns = this.Sactual- aux;
+            this.Sactual= (ns);
+            
+
+        }
+        return this.Sactual;
+    }
 
 }

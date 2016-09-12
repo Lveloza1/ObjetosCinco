@@ -279,31 +279,18 @@ public class principal extends javax.swing.JFrame {
     }//GEN-LAST:event_cmdIngresarActionPerformed
 
     private void cmdRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRetirarActionPerformed
-        long aux;
-        long ns;
-        int res;
-        if (c.getSactual() == 0) {
-            JOptionPane.showMessageDialog(this, "Usted no tiene saldo");
-        }
-        aux = Long.parseLong(JOptionPane.showInputDialog(this, "Digite el total a retirar"));
-        while (aux > c.getSactual()) {
-            aux = Long.parseLong(JOptionPane.showInputDialog(this, "Debe tener una cantidad validad para retirar, ingrese su saldo nuevamente"));
-        }
-        res = JOptionPane.showConfirmDialog(this, "¿Seguro que desea retirar esta cantidad?: " + aux, "Pregunta", JOptionPane.YES_NO_OPTION);
-        if (res == 0) {
-            ns = c.getSactual() - aux;
-            c.setSactual(ns);
-            txtResultado.append("Se ha retirado una nueva cantidad, su saldo actual es: " + c.getSactual() + "\n");
+       long aux;
+       aux=c.Retirar();
+       txtResultado.append("Su saldo actual es :" +aux+ "\n");
+        
 
-        } else {
-            txtResultado.append("No se ha registrado ningún cambio su saldo es: " + c.getSactual() + "\n");
             cmdGuardar.setEnabled(false);
             cmdIngresar.setEnabled(true);
             cmdActualizar.setEnabled(true);
             cmdRetirar.setEnabled(true);
             cmdBorrar.setEnabled(true);
             cmdMostrar.setEnabled(true);
-        }
+        //}
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdRetirarActionPerformed
 
