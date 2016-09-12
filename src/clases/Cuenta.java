@@ -60,14 +60,14 @@ public class Cuenta {
     public long ActualizarSaldo() {
         long res;
         res = this.Sactual + (this.Ianual / 365);
-        this.Sactual=res;
+        this.Sactual = res;
         return this.Sactual;
     }
 
     public long Ingresar() {
         long aux;
         long ns;
-        boolean au=true;
+        boolean au = true;
         int res1, sw;
 
         do {
@@ -75,14 +75,14 @@ public class Cuenta {
 
             try {
                 aux = Long.parseLong(JOptionPane.showInputDialog(null, "Digite el total a ingresar"));
-                
-                    ns = aux + this.Sactual;
-                    this.Sactual = ns;
+
+                ns = aux + this.Sactual;
+                this.Sactual = ns;
 
             } catch (NumberFormatException e) {
                 res1 = JOptionPane.showConfirmDialog(null, "¿Desea Abandonar?", "Salir", JOptionPane.YES_NO_OPTION);
                 if (res1 == 0) {
-                    au=false;
+                    au = false;
                     sw = 1;
                 } else {
                     sw = 0;
@@ -90,27 +90,39 @@ public class Cuenta {
             }
 
         } while (sw == 0);
-        
+
         return this.Sactual;
     }
-    public long Retirar(){
+
+    public long Retirar() {
         long aux;
         long ns;
-        int res;
-        if (this.Sactual == 0) {
-            JOptionPane.showMessageDialog(null, "Usted no tiene saldo");
-        }
-        aux = Long.parseLong(JOptionPane.showInputDialog( "Digite el total a retirar"));
-        while (aux > this.Sactual) {
-            aux = Long.parseLong(JOptionPane.showInputDialog( "Debe tener una cantidad validad para retirar, ingrese su saldo nuevamente"));
-        }
-        res = JOptionPane.showConfirmDialog(null, "¿Seguro que desea retirar esta cantidad?: " + aux, "Pregunta", JOptionPane.YES_NO_OPTION);
-        if (res == 0) {
-            ns = this.Sactual- aux;
-            this.Sactual= (ns);
-            
+        boolean au = true;
+        int res, sw;
+        do {
+            sw = 1;
+           try { 
+            if (this.Sactual == 0) {
+                JOptionPane.showMessageDialog(null, "No hay saldo en la cuenta");
+            } else {
+                aux = Long.parseLong(JOptionPane.showInputDialog("Digite el total a retirar"));
+                while (aux > this.Sactual) {
+                    aux = Long.parseLong(JOptionPane.showInputDialog("No hay suficiente dinero en la cuenta para el retiro, intente nuevamente"));
+                }
+                ns = this.Sactual - aux;
+                this.Sactual = (ns);
+            }
+            } catch (NumberFormatException e) {
+                res = JOptionPane.showConfirmDialog(null, "¿Desea Abandonar?", "Salir", JOptionPane.YES_NO_OPTION);
+                if (res == 0) {
+                    au = false;
+                    sw = 1;
+                } else {
+                    sw = 0;
+                }
+            }
+        } while (sw == 0);
 
-        }
         return this.Sactual;
     }
 
