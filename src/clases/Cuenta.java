@@ -13,60 +13,69 @@ import javax.swing.JOptionPane;
  */
 public class Cuenta {
 
-    private long identificacion;
-    private int saldoactual;
-    private int interesanual;
-    private int ingreso;
+    private long Ncuenta;
+    private long Nidentificacion;
+    private long Sactual;
+    private long Ianual;
+      public Cuenta (long Ncuenta,long Nidentificacion,long Sactual,long Ianual){
+          this.Ncuenta = Ncuenta;
+          this.Nidentificacion=Nidentificacion;
+          this.Sactual=Sactual;
+          this.Ianual=Ianual;
+      }
 
-    public Cuenta(long identificacion, int saldoactual, int interesanual, int ingreso) {
-        this.identificacion = identificacion;
-        this.saldoactual = saldoactual;
-        this.interesanual = interesanual;
-        this.ingreso = ingreso;
+    public long getNcuenta() {
+        return Ncuenta;
     }
 
-    public long getIdentificacion() {
-        return identificacion;
+    public long getNidentificacion() {
+        return Nidentificacion;
     }
 
-    public int getSaldoactual() {
-        return saldoactual;
+    public long getSactual() {
+        return Sactual;
     }
 
-    public double getInteresanual() {
-        return interesanual;
+    public long getIanual() {
+        return Ianual;
     }
 
-    public void setIdentificacion(long identificacion) {
-        this.identificacion = identificacion;
+    public void setNcuenta(long Ncuenta) {
+        this.Ncuenta = Ncuenta;
     }
 
-    public void setSaldoactual(int saldoactual) {
-        this.saldoactual = saldoactual;
+    public void setNidentificacion(long Nidentificacion) {
+        this.Nidentificacion = Nidentificacion;
     }
 
-    public void setInteresanual(int interesanual) {
-        this.interesanual = interesanual;
+    public void setSactual(long Sactual) {
+        this.Sactual = Sactual;
     }
 
-    public Cuenta actualizar() {
-        Cuenta as;
-        int saldo, retiro, retiro1=0, ia;
-        long id;
-
-        saldo = (this.interesanual / 365) + this.saldoactual;
-        ia=this.interesanual;
-        retiro = this.ingreso;
-        if (saldo < retiro) {
-            JOptionPane.showMessageDialog(null, "No tiene suficiente saldo para este retiro", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            retiro1 = saldo - retiro;
+    public void setIanual(long Ianual) {
+        this.Ianual = Ianual;
+    }
+      public long ActualizarSaldo (){
+             long res;
+   res = this.Sactual+(this.Ianual/365);
+    return res;
+      }
+      public long Ingresar (){
+          long aux;
+        long ns;
+        int res;
+        aux = Long.parseLong(JOptionPane.showInputDialog(null, "Digite el total a ingresar"));
+       res=JOptionPane.showConfirmDialog(null, "¿Seguro que desea ingresar esta cantidad?: "+aux,"Pregunta",JOptionPane.YES_NO_OPTION);
+        if (res==0){
+            ns = aux+this.Sactual;
+            this.Sactual = ns;
+           
+            
+        }else{
+            this.Sactual = this.Sactual;
         }
-        id = this.identificacion;
-
-        as = new Cuenta(id, saldo,ia, retiro1);
-        return as;
-     
-    }
-
+        return this.Sactual;
+      }
+      
+    
 }
