@@ -60,22 +60,37 @@ public class Cuenta {
     public long ActualizarSaldo() {
         long res;
         res = this.Sactual + (this.Ianual / 365);
-        return res;
+        this.Sactual=res;
+        return this.Sactual;
     }
 
     public long Ingresar() {
         long aux;
         long ns;
-        int res;
-        aux = Long.parseLong(JOptionPane.showInputDialog(null, "Digite el total a ingresar"));
-        res = JOptionPane.showConfirmDialog(null, "¿Seguro que desea ingresar esta cantidad?: " + aux, "Pregunta", JOptionPane.YES_NO_OPTION);
-        if (res == 0) {
-            ns = aux + this.Sactual;
-            this.Sactual = ns;
+        boolean au=true;
+        int res1, sw;
 
-        } else {
-            this.Sactual = this.Sactual;
-        }
+        do {
+            sw = 1;
+
+            try {
+                aux = Long.parseLong(JOptionPane.showInputDialog(null, "Digite el total a ingresar"));
+                
+                    ns = aux + this.Sactual;
+                    this.Sactual = ns;
+
+            } catch (NumberFormatException e) {
+                res1 = JOptionPane.showConfirmDialog(null, "¿Desea Abandonar?", "Salir", JOptionPane.YES_NO_OPTION);
+                if (res1 == 0) {
+                    au=false;
+                    sw = 1;
+                } else {
+                    sw = 0;
+                }
+            }
+
+        } while (sw == 0);
+        
         return this.Sactual;
     }
 
