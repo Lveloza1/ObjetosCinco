@@ -27,6 +27,8 @@ public class principal extends javax.swing.JFrame {
         cmdRetirar.setEnabled(false);
         cmdBorrar.setEnabled(true);
         cmdMostrar.setEnabled(false);
+        txtRetirar.setEditable(false);
+        txtIngresar.setEditable(false);
     }
 
     /**
@@ -49,6 +51,10 @@ public class principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtIngresar = new javax.swing.JTextField();
+        txtRetirar = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtResultado = new javax.swing.JTextArea();
@@ -66,7 +72,7 @@ public class principal extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tunga", 1, 18)); // NOI18N
         jLabel1.setText("Ejercicio 5");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Iniciales"));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -82,6 +88,11 @@ public class principal extends javax.swing.JFrame {
         jLabel8.setText("No. de Cuenta");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
+        txtInteresAnual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtInteresAnualActionPerformed(evt);
+            }
+        });
         txtInteresAnual.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtInteresAnualKeyTyped(evt);
@@ -108,14 +119,46 @@ public class principal extends javax.swing.JFrame {
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
-        jLabel7.setText("Interés Anual");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        jLabel7.setText("Cantidad a retirar");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
         jLabel6.setText("ID del cliente");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 230, 180));
+        jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
+        jLabel9.setText("Interés Anual");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 11)); // NOI18N
+        jLabel10.setText("Cantidad a ingresar");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+
+        txtIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIngresarActionPerformed(evt);
+            }
+        });
+        txtIngresar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIngresarKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 100, 30));
+
+        txtRetirar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRetirarActionPerformed(evt);
+            }
+        });
+        txtRetirar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtRetirarKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtRetirar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 100, 30));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 230, 220));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Resultantes"));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,7 +170,7 @@ public class principal extends javax.swing.JFrame {
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 90));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 230, 120));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 230, 120));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -180,7 +223,7 @@ public class principal extends javax.swing.JFrame {
         });
         jPanel4.add(cmdMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 130, 40));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 180, 300));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 180, 290));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,8 +237,8 @@ public class principal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -203,21 +246,34 @@ public class principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdActualizarActionPerformed
-        long aux;
-        aux = c.ActualizarSaldo();
-        txtResultado.append("\nSu saldo se ha actualizado a: " + aux + "\n");
+        try {
+            double act;
+            act = Double.parseDouble(txtInteresAnual.getText());
+            c.ActualizarSaldo(act);
+            txtResultado.append("\nSu saldo se ha actualizado a: " + c.getSactual() + "\n");
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Digite un número valido");
+            txtInteresAnual.setEditable(true);
+            txtInteresAnual.selectAll();
+            txtInteresAnual.requestFocusInWindow();
+            
+        }
         cmdGuardar.setEnabled(false);
         cmdIngresar.setEnabled(true);
-        cmdActualizar.setEnabled(false);
+        cmdActualizar.setEnabled(true);
         cmdRetirar.setEnabled(true);
         cmdBorrar.setEnabled(true);
         cmdMostrar.setEnabled(false);
+        txtRetirar.setEditable(true);
+        txtIngresar.setEditable(true);
 
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdActualizarActionPerformed
 
     private void cmdGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdGuardarActionPerformed
-        long numerocuenta, identificacion, saldoa, interes;
+        long numerocuenta, identificacion;
+        double saldoactual;
+
         if (txtNumeroCuenta.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Ingrese el número de cuenta");
             txtNumeroCuenta.requestFocusInWindow();
@@ -235,61 +291,89 @@ public class principal extends javax.swing.JFrame {
 
             numerocuenta = Long.parseLong(txtNumeroCuenta.getText());
             identificacion = Long.parseLong(txtIdentificacion.getText());
-            saldoa = Long.parseLong(txtSaldoActual.getText());
-            interes = Long.parseLong(txtInteresAnual.getText());
+            saldoactual = Double.parseDouble(txtSaldoActual.getText());
 
-            c = new Cuenta(numerocuenta, identificacion, saldoa, interes);
+            c = new Cuenta(numerocuenta, identificacion, saldoactual);
             JOptionPane.showMessageDialog(this, "Guardado exitosamente");
+            txtInteresAnual.setEditable(false);
+            txtNumeroCuenta.setEditable(false);
+            txtIdentificacion.setEditable(false);
+            txtSaldoActual.setEditable(false);
+
             cmdGuardar.setEnabled(false);
-            cmdIngresar.setEnabled(true);
+            cmdIngresar.setEnabled(false);
             cmdActualizar.setEnabled(false);
-            cmdRetirar.setEnabled(true);
+            cmdRetirar.setEnabled(false);
             cmdBorrar.setEnabled(true);
             cmdMostrar.setEnabled(true);
+
         }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdGuardarActionPerformed
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
-        txtResultado.append("El numero de la cuenta es: " + c.getNcuenta() + "\n");
-        txtResultado.append("El numero de identificacion es: " + c.getNidentificacion() + "\n");
-        txtResultado.append("El saldo actual es: " + c.getSactual() + "\n");
-        txtResultado.append("El interes anual es: " + c.getIanual());
+        c.mostrar();
+        txtResultado.append(c.mostrar() + "\n");
         cmdGuardar.setEnabled(false);
-        cmdIngresar.setEnabled(true);
+        cmdIngresar.setEnabled(false);
         cmdActualizar.setEnabled(true);
-        cmdRetirar.setEnabled(true);
+        cmdRetirar.setEnabled(false);
         cmdBorrar.setEnabled(true);
         cmdMostrar.setEnabled(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdMostrarActionPerformed
 
     private void cmdIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdIngresarActionPerformed
-        long aux;
-        aux = c.Ingresar();
-        txtResultado.append("Su saldo actual es: " + aux + "\n");
+        double ing;
+
+        if (txtIngresar.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor digite la cantidad a ingresar");
+            txtIngresar.requestFocusInWindow();
+
+        } else {
+
+            ing = Double.parseDouble(txtIngresar.getText());
+            c.Ingresar(ing);
+            txtIngresar.setText("");
+            txtRetirar.setText("");
+            txtResultado.append("Saldo actual: " + c.getSactual() + "\n");
+
+        }
         cmdGuardar.setEnabled(false);
         cmdIngresar.setEnabled(true);
-        cmdActualizar.setEnabled(true);
+        cmdActualizar.setEnabled(false);
         cmdRetirar.setEnabled(true);
         cmdBorrar.setEnabled(true);
-        cmdMostrar.setEnabled(true);
+        cmdMostrar.setEnabled(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdIngresarActionPerformed
 
     private void cmdRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdRetirarActionPerformed
-       long aux;
-       aux=c.Retirar();
-       txtResultado.append("Su saldo actual es :" +aux+ "\n");
-        
+        double ret, sa;
 
-            cmdGuardar.setEnabled(false);
-            cmdIngresar.setEnabled(true);
-            cmdActualizar.setEnabled(true);
-            cmdRetirar.setEnabled(true);
-            cmdBorrar.setEnabled(true);
-            cmdMostrar.setEnabled(true);
+        if (txtRetirar.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "por favor digite la cantidad a retirar ");
+            txtRetirar.requestFocusInWindow();
+        } else {
+            ret = Double.parseDouble(txtRetirar.getText());
+            sa = c.getSactual();
+            if (sa < ret) {
+                JOptionPane.showMessageDialog(this, "No hay suficiente saldo en su cuenta para el retiro");
+                txtRetirar.setText("");
+            } else {
+                c.Retirar(ret);
+                txtRetirar.setText("");
+                txtIngresar.setText("");
+                txtResultado.append("Saldo actual: " + c.getSactual() + "\n");
+            }
+        }
+        cmdGuardar.setEnabled(false);
+        cmdIngresar.setEnabled(true);
+        cmdActualizar.setEnabled(false);
+        cmdRetirar.setEnabled(true);
+        cmdBorrar.setEnabled(true);
+        cmdMostrar.setEnabled(false);
         //}
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdRetirarActionPerformed
@@ -301,51 +385,85 @@ public class principal extends javax.swing.JFrame {
         txtNumeroCuenta.setText("");
         txtIdentificacion.setText("");
         txtSaldoActual.setText("");
-        
+
         cmdGuardar.setEnabled(true);
         cmdIngresar.setEnabled(false);
         cmdActualizar.setEnabled(false);
         cmdRetirar.setEnabled(false);
         cmdBorrar.setEnabled(true);
         cmdMostrar.setEnabled(false);
+
+        txtNumeroCuenta.setEditable(true);
+        txtIdentificacion.setEditable(true);
+        txtSaldoActual.setEditable(true);
+        txtInteresAnual.setEditable(true);
+        txtRetirar.setEditable(false);
+        txtIngresar.setEditable(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     private void txtNumeroCuentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumeroCuentaKeyTyped
-char c=evt.getKeyChar(); 
-          if(!Character.isDigit(c)) { 
-              getToolkit().beep(); 
-              evt.consume(); 
-          }
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNumeroCuentaKeyTyped
 
     private void txtIdentificacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdentificacionKeyTyped
-char c=evt.getKeyChar(); 
-          if(!Character.isDigit(c)) { 
-              getToolkit().beep(); 
-              evt.consume(); 
-          }
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIdentificacionKeyTyped
 
     private void txtSaldoActualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSaldoActualKeyTyped
-char c=evt.getKeyChar(); 
-          if(!Character.isDigit(c)) { 
-              getToolkit().beep(); 
-              evt.consume(); 
-          }
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSaldoActualKeyTyped
 
     private void txtInteresAnualKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInteresAnualKeyTyped
-char c=evt.getKeyChar(); 
-          if(!Character.isDigit(c)) { 
-              getToolkit().beep(); 
-              evt.consume(); 
-          }
+
         // TODO add your handling code here:
     }//GEN-LAST:event_txtInteresAnualKeyTyped
+
+    private void txtInteresAnualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInteresAnualActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInteresAnualActionPerformed
+
+    private void txtRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRetirarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRetirarActionPerformed
+
+    private void txtRetirarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRetirarKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRetirarKeyTyped
+
+    private void txtIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIngresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIngresarActionPerformed
+
+    private void txtIngresarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIngresarKeyTyped
+        char c = evt.getKeyChar();
+        if (!Character.isDigit(c)) {
+            getToolkit().beep();
+            evt.consume();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIngresarKeyTyped
 
     /**
      * @param args the command line arguments
@@ -390,19 +508,23 @@ char c=evt.getKeyChar();
     private javax.swing.JButton cmdMostrar;
     private javax.swing.JButton cmdRetirar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtIdentificacion;
+    private javax.swing.JTextField txtIngresar;
     private javax.swing.JTextField txtInteresAnual;
     private javax.swing.JTextField txtNumeroCuenta;
     private javax.swing.JTextArea txtResultado;
+    private javax.swing.JTextField txtRetirar;
     private javax.swing.JTextField txtSaldoActual;
     // End of variables declaration//GEN-END:variables
 }
